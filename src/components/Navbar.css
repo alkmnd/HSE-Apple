@@ -18,13 +18,14 @@
     height: 100vh;
     display: flex;
     justify-content: center;
-    position:fixed;
+    position: fixed;
     top: 0;
     left: -100%;
     transition: 850ms;
 }
 
 .nav-menu.active {
+    position: absolute;
     left: 0;
     transition: 350ms;
 }
@@ -51,7 +52,7 @@
 }
 
 .nav-text a:hover {
-    color: #372461;
+    color: #2A324A  ;
 }
 
 .nav-menu-items {
@@ -59,7 +60,7 @@
 }
 
 .navbar-toggle {
-    background-color: #372461;
+    background-color: #2A324A;
     width: 100%;
     height: 80px;
     display: flex;

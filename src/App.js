@@ -6,6 +6,7 @@ import Messages from './pages/Messages';
 import Profile from './pages/Profile';
 import Activity from './pages/Activity';
 import Assignments from './pages/Assignments';
+import Login from './pages/Login';
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route path='/'element={<Profile />} />
+          <Route path='/profile' exact element={<Profile />} />
           <Route path='/messages' element={<Messages />} />
           <Route path='/assignments' element={<Assignments />} />
           <Route path='/activity' element={<Activity />} />
