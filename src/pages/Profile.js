@@ -4,6 +4,7 @@ import { StyleSheet, View, Text, Button} from 'react-native';
 import {MdPhone} from 'react-icons/md';
 import {MdAlternateEmail} from 'react-icons/md';
 import FlatButton from './FlatButton'
+import '../components/styles.css'
 
 function Profile() {
     const uploadedImage = React.useRef("https://cdn-icons-png.flaticon.com/512/149/149071.png");
@@ -46,15 +47,15 @@ function Profile() {
                     <img style = {{width:"170px", height:"170px", borderRadius:"80px", position:"absolute",
                     top:"25%", left:"50%", marginLeft:"-80px"}}
                     ref={uploadedImage} src = {"https://cdn-icons-png.flaticon.com/512/149/149071.png"}/>
-                    <MdPhone style={{width:"20px", height:"20px", marginTop:"12rem", position:"absolute",
-                    color: "#979797", marginLeft:"-10.5rem"}}/>
+                    <MdPhone style={{width:"20px", height:"20px", marginTop:"3rem", position:"absolute",
+                    color: "#979797", marginLeft:"-1.5rem"}}/>
                     <Text style={styles.numberText}>8-888-888-88-88</Text>
-                    <MdAlternateEmail style={{width:"20px", height:"20px", marginTop:"14rem", position:"absolute",
-                    color: "#979797", marginLeft:"-10.5rem"}}/>
-                    <Text style={styles.emailText}>someemail@edu.hse.ru</Text>
+                    <MdAlternateEmail style={{width:"20px", height:"20px", marginTop:"1rem", position:"absolute",
+                    color: "#979797", marginLeft:"-1.5rem"}}/>
+                    <Text style={styles.emailText}>nabelova_1@edu.hse.ru</Text>
                     <FlatButton text="Загрузить фото" onPress={() => imageUploader.current.click()}/>
-                    <Text style={styles.baseText}>Фамилия Имя Отчество</Text>
-                    <Text style={styles.titleText}>Должность</Text>
+                    <Text style={styles.baseText}>Белова Наталья Александровна</Text>
+                    <Text style={styles.titleText}>Студент</Text>
                 
                 </div>
             
@@ -66,7 +67,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: "bold",
         position: "absolute",
-        marginLeft:"-110px",
+        marginLeft:"-138px",
         left: "50%",
         textAlign: "center",
         top:"48%",
@@ -80,14 +81,13 @@ const styles = StyleSheet.create({
         width: "150px",
         marginLeft:"-75px",
         top:"52%",
-        //margin: "auto"
 
     },
     numberText: {
         fontSize: 15,
         position: "absolute", 
-        marginLeft: "-8.5rem",
-        marginTop: "12rem",
+        marginLeft: "0rem",
+        marginTop: "3rem",
         color:"#979797",
         textAlign: "center",
 
@@ -95,8 +95,8 @@ const styles = StyleSheet.create({
     emailText: {
         fontSize: 15,
         position: "absolute", 
-        marginLeft: "-8.5rem",
-        marginTop: "14rem",
+        marginLeft: "0rem",
+        marginTop: "1rem",
         color:"#979797"
     },
     uploadButton: {

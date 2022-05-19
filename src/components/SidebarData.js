@@ -23,7 +23,7 @@ export const SidebarData = [
     }, 
     {
         title: 'Объявления', 
-        path: '/activity',
+        path: '/activities',
         icon: <VscIcons.VscBellDot color={979797} />,
         cName: 'nav-text'
     }

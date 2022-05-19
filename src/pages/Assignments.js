@@ -1,9 +1,11 @@
 import React from "react";
+import AssignmentList from "../components/AssignmentList"
+import '../components/styles.css'
 
 function Assignments() {
     return (
         <div className='assignments'>
-            <h1>Assignments</h1>
+            <AssignmentList/>
         </div>
     );
 }

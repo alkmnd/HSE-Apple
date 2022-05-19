@@ -10,10 +10,10 @@
 .profile, 
 .messages,
 .assignments,
-.activity {
+.activities,
+.answers {
   display: flex;
   height: 90vh;
   align-items: center;
   justify-content: center;
-  font-size: 10rem;
 }
