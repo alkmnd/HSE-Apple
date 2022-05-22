@@ -1,70 +1,74 @@
-import { useState } from 'react';
-import './styles.css'
-import {AiFillPlusCircle} from "react-icons/ai";
-import Assignment from './Assignment';
-import CreateNewAssignment from './CreateNewAssignment';
-
-const DATA = [ 
-  {
-    creator: 'Teacher1',
-    header: 'Hello!',
-    deadline: "12.08.22",
-    answers: {
-        user: 'User1',
-        date: '12.06.17',
-        file: 'fkldjg'
-    }
-  }, 
-  {
-      creator: 'Teacher2',
-      header: 'Good Morning!',
-      deadline: '20.08.22',
-      answers: {
-          user: 'User2',
-          date: '12.06.18',
-          file: 'fkldjg'
-      }
-  }
-];
+import { useState, useMemo } from "react";
+import "./styles.css";
+import { AiFillPlusCircle } from "react-icons/ai";
+import Assignment from "./Assignment";
+import CreateNewAssignment from "./CreateNewAssignment";
+import { useAnswers } from "../providers/answersProvider";
+import shortid from "shortid";
 
 function AssignmentList() {
-  const [groupName, setGroupName] = useState('1 курс');
+  const [groupName, setGroupName] = useState("all");
   const [modalWindowIsOpen, setModalWindowIsOpen] = useState(false);
-  
-  function closeModalWindow() { 
+  const { assignments, setAssigments } = useAnswers();
+  const filteredAssigments = useMemo(
+    () =>
+      groupName === "all"
+        ? assignments
+        : assignments.filter((assignment) => assignment?.group === groupName) ??
+          [],
+    [groupName, assignments]
+  );
+
+  function closeModalWindow() {
     setModalWindowIsOpen(false);
   }
 
-  function openModalWindow() { 
+  function openModalWindow() {
     setModalWindowIsOpen(true);
+  }
+
+  function handleSubmit(values) {
+    setAssigments((prev) => [
+      ...prev,
+      { ...values, creator: "Teacher", answers: [], id: shortid.generate() },
+    ]);
+    closeModalWindow();
   }
 
   return (
     <>
-      {modalWindowIsOpen && <CreateNewAssignment close={closeModalWindow} currentGroupName={groupName} />}
+      {modalWindowIsOpen && (
+        <CreateNewAssignment
+          onSubmit={handleSubmit}
+          close={closeModalWindow}
+          currentGroupName={groupName}
+        />
+      )}
 
       <div className="assignment-list">
         <div className="assignment-header">
-          <div className='help-text'>Задания</div>
-          <select onChange={(event) => setGroupName(event.target.value)} className="group-name">
-            <option value="1 курс">1 курс</option>
-            <option value="2 курс">2 курс</option>
+          <div className="help-text">Задания</div>
+          <select
+            defaultValue="all"
+            onChange={(event) => setGroupName(event.target.value)}
+            className="group-name"
+          >
+            <option value="all">Все</option>
+            <option value="1 курс - IOS">1 курс - IOS</option>
+            <option value="2 курс - IOS">2 курс - IOS</option>
           </select>
-          <AiFillPlusCircle className='add-new-assignment-button' onClick={openModalWindow} />
+          <AiFillPlusCircle
+            className="add-new-assignment-button"
+            onClick={openModalWindow}
+          />
         </div>
-        <div className='assignment-centralization'>
-          {DATA.map((assignment, index) => 
-            <Assignment 
-                key={index} 
-                creator={assignment.creator} 
-                header={assignment.header} 
-                deadline={assignment.deadline}
-                answers={assignment.answers}
-            />
-          )}
+        <div className="assignment-centralization">
+          {filteredAssigments.map((assignment, index) => (
+            <Assignment key={index} {...assignment} />
+          ))}
         </div>
       </div>
     </>
   );
 }
-export default AssignmentList
+export default AssignmentList;

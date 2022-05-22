@@ -9,14 +9,14 @@ const dateNow = () => {
 const DATA = [
   {
     id: shortid.generate(),
-    creator: "Teacher1",
+    creator: "Teacher",
     header: "Hello!",
     deadline: "12.08.22",
-    group: "1 курс",
+    group: "1 курс - IOS",
     answers: [
       {
-        user: "User1",
-        date: "12-06-17",
+        user: "Белова Н. А.",
+        date: "12.06.17",
         file: {
           name: "dsadsa",
           url: "",
@@ -26,14 +26,14 @@ const DATA = [
   },
   {
     id: shortid.generate(),
-    creator: "Teacher2",
+    creator: "Teacher",
     header: "Good Morning!",
     deadline: "20.08.22",
-    group: "1 курс",
+    group: "1 курс - IOS",
     answers: [
       {
-        user: "User2",
-        date: "12-06-18",
+        user: "Демиденко К. В.",
+        date: "12.06.18",
         file: {
           name: "dsadsvcxa",
           url: "",
