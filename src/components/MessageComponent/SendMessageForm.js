@@ -1,32 +1,71 @@
-import React from 'react'
-import '.././styles.css'
-import { SafeAreaView, TextInput} from "react-native"
+import React, { useState } from "react";
+import ".././styles.css";
+import { SafeAreaView, TextInput } from "react-native";
+import { FcFile } from "react-icons/fc";
+import { ClipIcon } from "../ClipIcon";
 
-class SendMessageForm extends React.Component {
-    
-    constructor() {
-        super()
-        this.state = {
-            message: ''
-        }
-        this.handleChange = this.handleChange.bind(this)
-    }
-    handleChange(e) {
-        this.setState({ 
-            message: e.target.value
-        })
-    }
-    
+const SendMessageForm = ({ onCreateMessage }) => {
+  const [message, setMessage] = useState({
+    text: "",
+    file: null,
+  });
 
-    render() {
-        return (
-            <SafeAreaView className="send-message-form">
-                <textarea className='text-input'
-                        placeholder='Write message...'
-                        
-                        />
-                        </SafeAreaView>
-        )
+  const handleChangeInput = (e) => {
+    setMessage((prev) => ({ file: message.file, text: e.target.value }));
+  };
+
+  const handleSubmitForm = (e) => {
+    e.preventDefault();
+    onCreateMessage({ ...message, text: message.text.trim() });
+    setMessage({
+      text: "",
+      file: null,
+    });
+  };
+
+  function saveFile(event) {
+    if (event.target.files && event.target.files[0]) {
+      let file = event.target.files[0];
+      let blob = URL.createObjectURL(file);
+
+      setMessage({
+        ...message,
+        file: {
+          name: file.name,
+          type: file.type,
+          url: blob,
+        },
+      });
     }
-}
-export default SendMessageForm
+  }
+
+  function loadFile(e) {
+    let file = document.createElement("input");
+    file.setAttribute("type", "file");
+    file.addEventListener("change", saveFile);
+    file.click();
+  }
+
+  return (
+    <SafeAreaView>
+      <form className="send-message-form" onSubmit={handleSubmitForm}>
+        <div className="message-form-input">
+          <textarea
+            onChange={handleChangeInput}
+            value={message.text}
+            className="text-input"
+            placeholder="Write message..."
+          />
+          <button className="send-message-btn"onClick>Отправить</button>
+        <div className="message-form-file">
+          <ClipIcon className="add-file-button" onClick={loadFile} />
+      
+        </div>
+        
+        </div>
+        <div className="file-name">Вложение: {message?.file?.name}</div>
+      </form>
+    </SafeAreaView>
+  );
+};
+export default SendMessageForm;

@@ -1,13 +1,26 @@
-import React from 'react'
-import '.././styles.css'
- class Message extends React.Component {
-     render() {
-         return (
-            <div className='message'>
-                <div className='message-username'>{this.props.username}</div>
-                <div className='message-text'>{this.props.text}</div>
-            </div>
-         )
-     }
- }
+import React from "react";
+import ".././styles.css";
+const Message = ({ text, file, dateCreate }) => {
+  const dateNow = () => {
+    const date = new Date();
+    return `${date.getDay()}-${date.getMonth()}-${date.getFullYear()}`;
+  };
+  
+  return (
+    <div className="message">
+      <div className='message-username'>Белова Н. А.</div> 
+      {text.length > 0 && (<div className="message-text">{text}</div>)}
+      {file && !file?.type.includes("image") && (
+        <div>
+          <span>Вложение: </span>
+          <a href={file.url}>{file.name}</a>
+        </div>
+      )}
+      {file && file?.type.includes("image") && (
+        <img className="message-img" src={file.url} />
+      )}
+      <div className="creation-date">24-05-2022</div>
+    </div>
+  );
+};
 export default Message;
