@@ -1,15 +1,15 @@
 import "./App.css";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import Navbar from "./components/Navbar.js";
-import Messages from "./pages/Messages";
-import Profile from "./pages/Profile";
-import Activities from "./pages/Activities";
-import Assignments from "./pages/Assignments";
-import Login from "./pages/Login";
-import Answers from "./pages/Answers";
+import Navbar from "./components/NavBar/Navbar.js";
+import Messages from "./pages/Messages/Messages";
+import Profile from "./pages/Profile/Profile";
+import Activities from "./pages/Activities/Activities";
+import Assignments from "./pages/Assignments/Assignments";
+import Login from "./pages/Login/Login";
+import Answers from "./pages/Answers/Answers";
 import tokenService from "./services/TokenService";
-import PasswordForm from "./pages/PasswordForm";
+import PasswordForm from "./pages/Login/PasswordForm";
 
 function App() {
   let location = useLocation();

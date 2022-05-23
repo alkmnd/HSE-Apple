@@ -1,0 +1,68 @@
+.member-list-form {
+    margin-top: 10px;
+  height: 90%;
+  border: 1px solid rgb(143, 143, 143);
+  width:400px;
+  position: relative;
+  white-space: pre-line;
+  margin-left: 1%;
+  border-radius: 5px;
+}
+.member-list-header {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 400px;
+    align-items: center;
+    vertical-align: middle;
+    border-bottom: 1px solid rgb(221, 221, 221);
+}
+.member-list-span {
+    align-items:flex-start;
+    width: 400px;
+    padding: 2%;
+    margin-left: -0%;
+    display: flex;
+    position: relative;
+    color:#dadada;
+}
+.add-new-member-button {
+    margin-right: 3%;
+    cursor: pointer;
+    width: 30px; 
+    height: 30px; 
+    transition: 0.3s;
+}
+.member-list-help-text {
+    align-items:center;
+    padding: 2%;
+    margin-left: 35%;
+    margin-top: 70%;
+    display: flex;
+    position: relative;
+    color:#a8a8a8;
+}
+.rooms {
+    display: flex;
+    flex-direction: column;
+}
+.participant-card {
+    padding: 10px 0;
+    padding-left: 2%;
+    display: flex;
+    color:#d5d5d5;
+    flex-direction: row;
+  }
+  .participant-login {
+    margin-left: 2%;
+    padding-top: 1%;
+  }
+  .participant-card:hover {
+    background: #455279;
+    color:#d5d5d5;
+    flex-direction: row;
+  }
+  .participant-icon {
+    width: 7%;
+  }

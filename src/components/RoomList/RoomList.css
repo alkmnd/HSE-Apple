@@ -1,0 +1,72 @@
+.room-list-form {
+    margin-top: 10px;
+    height: 90%;
+    border: 0px solid #2A324A;
+    width:400px;
+    position: relative;
+    white-space: pre-line;
+    margin-right: 1%;
+    border-radius: 5px;
+    background-color: #2A324A;
+  }
+  .room-list-header {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 400px;
+    align-items: center;
+    vertical-align: middle;
+    border-bottom: 1px solid rgb(221, 221, 221);
+  }
+  .room-list-span {
+    align-items:flex-start;
+    width: 400px;
+    padding: 2%;
+    margin-left: -0%;
+    display: flex;
+    position: relative;
+    color:#dadada;
+  }
+  .add-new-course-button {
+    margin-right: 3%;
+    cursor: pointer;
+    width: 30px; 
+    height: 30px; 
+    transition: 0.3s;
+  }
+  .room-list-help-header {
+    width: 400px;
+    justify-content: center;
+    align-items:center;
+    position:absolute;
+  }
+  .room-list-help-text {
+    align-items:center;
+    padding: 2%;
+    margin-left: 35%;
+    margin-top: 70%;
+    display: flex;
+    position: relative;
+    color:#dadada;
+  }
+  .rooms {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .rooms-item {
+    padding: 10px 0;
+    padding-left: 2%;
+    color:#d5d5d5;
+  }
+  .rooms-item:hover {
+    background: #455279;
+    color:#d5d5d5;
+  }
+  
+  .rooms-item--active {
+    background: #455279;
+    color:#d5d5d5;
+  }
+  

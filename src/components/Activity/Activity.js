@@ -1,5 +1,5 @@
 import React from "react";
-import ".././styles.css";
+import "./Activity.css"
 
 function Activity({ header, creator, description, group, dateCreate }) {
   return (

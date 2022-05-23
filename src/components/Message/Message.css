@@ -1,0 +1,36 @@
+.message {
+    width: auto;
+    margin-top: 3%;
+    margin-left: 5%;
+    display: inline-flex;
+    gap: 0.5rem;
+    flex-direction: column;
+}
+
+.message-text {
+  background: #2A324A;
+  font-size: 15px;
+  padding: 7px;
+  width: auto;
+  border-radius: 8px;
+  color: white;
+}
+.message-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 2px;
+
+}
+
+.message-username {
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #979797;
+}
+.creation-date {
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #979797;
+  }
+  

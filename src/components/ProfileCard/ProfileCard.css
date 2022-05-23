@@ -1,0 +1,45 @@
+.profile-form {
+    background-color: #EFEFEF;
+    width: 700px;
+    height: 500px;
+    border-radius: 20px;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    gap: 80px;
+
+}
+.image-input {
+    display: none;
+}
+.profile-image {
+    width: 30%;
+    padding-top: 5%;
+    border-radius: 80px;
+}
+.image-components {
+    flex-direction: column;
+    display: flex;
+}
+
+.name {
+    margin-top: -130px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.role {
+    font-size: 15px;
+    color: blue;
+    margin-top: -70px;
+}
+.number-div {
+    flex-direction: row;
+    text-align: center;
+    margin-top: -60px;
+}
+.number {
+    color: #979797;
+}
+.email-div {
+    margin-top: -60px;
+}
