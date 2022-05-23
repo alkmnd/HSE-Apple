@@ -1,66 +1,99 @@
-import React from 'react'
-import { useState } from 'react';
-import '.././styles.css'
-import {AiFillPlusCircle} from "react-icons/ai";
-import Activity from './Activity';
-import CreateNewActivity from './CreateNewActivity';
-var DATA = [ 
-    {
-    creator: 'T2',
-    header: 'Hello!',
-    description: "Today is a good day to study! :)"
-    }, 
-    {
-        creator: 'T1',
-        header: 'Good Morning!',
-        description: 'Please, check your emails for more information!'
-    }
+import React from "react";
+import { useState, useMemo } from "react";
+import ".././styles.css";
+import { AiFillPlusCircle } from "react-icons/ai";
+import Activity from "./Activity";
+import CreateNewActivity from "./CreateNewActivity";
 
-]
-export function addData(name, description, event) {
-  event.preventDefault()
-  DATA.push( {
-    creator: "Белова Н. А.", 
-    header: name, 
-    description: description
-  })
-}
+const dateNow = () => {
+  const date = new Date();
+  return `${date.getDay()}-${date.getMonth()}-${date.getFullYear()}`;
+};
+
+var DATA = [
+  {
+    creator: "Teacher",
+    header: "Hello!",
+    description: "Today is a good day to study! :)",
+    group: "1 курс - IOS",
+    dateCreate: dateNow(),
+  },
+  {
+    creator: "Teacher",
+    header: "Good Morning!",
+    group: "2 курс - IOS",
+    description: "Please, check your emails for more information!",
+    dateCreate: dateNow(),
+  },
+];
+
 function ActivityList() {
-    const [groupName, setGroupName] = useState('1 курс');
-    const [modalWindowIsOpen, setModalWindowIsOpen] = useState(false);
-  
-  function closeModalWindow() { 
+  const [activities, setActivities] = useState(DATA);
+  const [groupName, setGroupName] = useState("all");
+  const [modalWindowIsOpen, setModalWindowIsOpen] = useState(false);
+  const filteredActivities = useMemo(
+    () =>
+      groupName === "all"
+        ? activities
+        : activities.filter((activity) => activity?.group === groupName) ?? [],
+    [groupName, activities]
+  );
+  function closeModalWindow() {
     setModalWindowIsOpen(false);
   }
 
-  function openModalWindow() { 
+  function openModalWindow() {
     setModalWindowIsOpen(true);
   }
 
-    return (
-      <>
-        {modalWindowIsOpen && <CreateNewActivity close={closeModalWindow} currentGroupName={groupName} data ={DATA}/>}
-            <div className="activity-list">
-                <div className="assignment-header">
-                    <div className='help-text'>Объявления</div>
-                        <select className="group-name" select onChange={(event) => setGroupName(event.target.value)}>
-                             <option value="1 курс">1 курс</option>
-                             <option value="2 курс">2 курс</option>
-                        </select>
-                    <AiFillPlusCircle className='add-new-activity-button' onClick={openModalWindow}/>
-                    </div>
-                    <div className='activity-centralization'>
-                        {DATA.map((activity, index) => 
-                            <Activity
-                                key={index} 
-                                creator={activity.creator} 
-                                header={activity.header} 
-                                description={activity.description}
-                            />
-                         )}
-                </div>
-            </div>
-    </>
-    );
+  function addData({ name, description, group, dateCreate }) {
+    setActivities([
+      ...activities,
+      {
+        creator: "Белова Н. А.",
+        header: name,
+        description,
+        group: group,
+        dateCreate,
+      },
+    ]);
   }
-  export default ActivityList
+
+  return (
+    <>
+      {modalWindowIsOpen && (
+        <CreateNewActivity
+          onSubmit={addData}
+          close={closeModalWindow}
+          currentGroupName={groupName}
+          data={activities}
+        />
+      )}
+      <div className="activity-list">
+        <div className="assignment-header">
+          <div className="help-text">Объявления</div>
+          <select
+            className="group-name"
+            select
+            defaultValue="all"
+            onChange={(event) => setGroupName(event.target.value)}
+          >
+            <option value="all">Все</option>
+            <option value="1 курс - IOS">1 курс - IOS</option>
+            <option value="2 курс - IOS">2 курс - IOS</option>
+          </select>
+          <AiFillPlusCircle
+            className="add-new-activity-button"
+            onClick={openModalWindow}
+          />
+        </div>
+        <div className="activity-centralization">
+          {filteredActivities.map((activity, index) => (
+            <Activity key={index} {...activity} />
+          ))}
+        </div>
+      </div>
+    </>
+  );
+}
+export default ActivityList;

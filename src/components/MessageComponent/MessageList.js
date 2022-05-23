@@ -34,7 +34,7 @@ const MessageList = () => {
                 ? openedRoom?.messages?.map((message) => (
                     <Message key={message.id} {...message} />
                   ))
-                : "Нет сообщений "}
+                : <div className="no-message-text">No messages here</div>}
             </div>
           )}
         </div>

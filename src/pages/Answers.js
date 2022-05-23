@@ -2,7 +2,7 @@ import React from "react";
 import AnswerList from "../components/AnswerList"
 import '../components/styles.css'
 
-function Activities() {
+function Answers() {
     return (
         <div className='answers'>
             <AnswerList/>
@@ -10,4 +10,4 @@ function Activities() {
     );
 }
 
-export default Activities;
+export default Answers;

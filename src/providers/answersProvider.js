@@ -58,7 +58,7 @@ export const AnswersProvider = ({ children }) => {
     newAssignments[
       newAssignments.findIndex((assignment) => assignment.id === assignmentId)
     ].answers.push({
-      user: "userTest",
+      user: "Белова Н. А.",
       date: dateNow(),
       file: {
         name: fileName,

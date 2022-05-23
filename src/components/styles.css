@@ -633,3 +633,18 @@ input {
 .sender-group {
   color:#8f8f8f;
 }
+
+.reciever-group {
+  color:#8f8f8f;
+}
+
+.no-message-text {
+  align-items:center;
+  padding: 2%;
+  margin-left: 40%;
+  margin-top: 34%;
+  display: flex;
+  position: relative;
+  color:#a8a8a8;
+  z-index: -1;
+}

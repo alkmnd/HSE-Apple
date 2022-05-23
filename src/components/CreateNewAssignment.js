@@ -2,7 +2,7 @@ import "./CreateNewAssignment.css";
 import { GrFormClose } from "react-icons/gr";
 import { useState } from "react";
 
-const groupNames = ["1 курс - IOS", "2 курс - IOS"];
+const groupNames = ["Все", "1 курс - IOS", "2 курс - IOS"];
 
 const CreateNewAssignment = ({ onSubmit, close }) => {
   const [form, setForm] = useState({
@@ -52,7 +52,7 @@ const CreateNewAssignment = ({ onSubmit, close }) => {
   const renderDate = (str) => str.split("-").reverse().join(".");
   const handleSubmitForm = (e) => {
     e.preventDefault();
-    if (nameError || !form.deadline) return;
+    if (nameError || !form.deadline || !form.header) return;
     onSubmit({
       ...form,
       header: form.header.trim(),
