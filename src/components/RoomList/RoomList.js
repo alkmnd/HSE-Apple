@@ -5,6 +5,10 @@ import { useState } from "react";
 import CreateNewCourse from "../CreateNewRoom/CreateNewRoom";
 import { useChat } from "../../providers/chatProvider";
 
+/**
+ * Отображение списка чатов.
+ * @returns - html-компонент.
+ */
 function RoomList() {
   const {rooms, setOpenedRoomId, openedRoomId } = useChat();
   const [modalWindowIsOpen, setModalWindowIsOpen] = useState(false);

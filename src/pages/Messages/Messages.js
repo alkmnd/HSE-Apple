@@ -5,6 +5,10 @@ import MembersList from "../../components/MembersList/MembersList"
 import "./Messages.css"
 import "../../components/styles.css"
 
+/**
+ * Страница "Сообщения".
+ * @returns Возвращает html-сомпонент.
+ */
 class Messages extends React.Component{ 
   
 render() {

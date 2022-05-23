@@ -2,6 +2,13 @@ import React from "react";
 import { FcDownload } from "react-icons/fc";
 import "./Answer.css"
 
+/**
+ * Определяет компонент "Ответ".
+ * @param {*} user - Пользователь, давший ответ.
+ * @param {*} file - ссылка на ответ.
+ * @param {*} date - дата загрузки ответа.
+ * @returns Вовзращается html-компонент.
+ */
 function Answer({ user, file, date }) {
   function downloadFile() {
     let link = document.createElement("a");

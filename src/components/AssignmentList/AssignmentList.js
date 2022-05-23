@@ -6,10 +6,17 @@ import { useAnswers } from "../../providers/answersProvider";
 import shortid from "shortid";
 import "./AssignmentList.css"
 
+/**
+ * Компонент с отображением заданий и компонентов для работы с ними.
+ * @returns Возвращает html-компонент.
+ */
 function AssignmentList() {
   const [groupName, setGroupName] = useState("all");
   const [modalWindowIsOpen, setModalWindowIsOpen] = useState(false);
   const { assignments, setAssigments } = useAnswers();
+  /**
+   * Фильтрация заданий по выбранному значению из select'a.
+   */
   const filteredAssigments = useMemo(
     () =>
       groupName === "all"
@@ -19,14 +26,24 @@ function AssignmentList() {
     [groupName, assignments]
   );
 
+  /**
+   * Закрытие окна для создания нового задания.
+   */
   function closeModalWindow() {
     setModalWindowIsOpen(false);
   }
 
+  /**
+   * открытие окна для создания нового задания.
+   */
   function openModalWindow() {
     setModalWindowIsOpen(true);
   }
 
+  /**
+   * Добавление нового задания.
+   * @param {} values - параметры, переданные из окна для создания нового задания. 
+   */
   function handleSubmit(values) {
     setAssigments((prev) => [
       ...prev,

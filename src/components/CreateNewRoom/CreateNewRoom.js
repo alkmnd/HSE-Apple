@@ -3,6 +3,11 @@ import { GrFormClose } from "react-icons/gr";
 import { useState } from "react";
 import { useChat } from "../../providers/chatProvider";
 
+/**
+ * Форма для создания нового чата.
+ * @param {*} param0 В параметрах события.
+ * @returns Возвращается html-компонент.
+ */
 const CreateNewCourse = ({ close, currentGroupName }) => {
   const { handleCreateRoom } = useChat();
   const [name, setName] = useState("");

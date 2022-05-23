@@ -1,5 +1,11 @@
 import React from "react";
 import "./Message.css"
+
+/**
+ * Компонент "Сообщение".
+ * @param {*} param0 В параметрах текст, прикрепленный файл и дата отправки сообщения.
+ * @returns html-компонент.
+ */
 const Message = ({ text, file, dateCreate }) => {
   const dateNow = () => {
     const date = new Date();

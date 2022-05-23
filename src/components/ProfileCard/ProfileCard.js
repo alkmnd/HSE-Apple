@@ -4,7 +4,13 @@ import FlatButton from "../Buttons/FlatButton"
 import {MdPhone} from 'react-icons/md';
 import {MdAlternateEmail} from 'react-icons/md';
 
+/**
+ * Отображение данных пользователя.
+ * @returns - html-компонент.
+ */
 function ProfileCard() {
+
+    // Инструменты для загрузки изображения.
     const uploadedImage = React.useRef("https://cdn-icons-png.flaticon.com/512/149/149071.png");
     const imageUploader = React.useRef(null);
     const handleImageUpload = e => {
@@ -35,8 +41,6 @@ function ProfileCard() {
                     className="upload-image-button"
                     text="Загрузить фото" 
                     onPress={() => imageUploader.current.click()}/>
-
-           
             <span className="name">Белова Наталья Александровна</span>
             <span className="role">Студент</span>
             <div className="number-div">

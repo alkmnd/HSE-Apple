@@ -5,6 +5,10 @@ import "./MessageList.css"
 import Message from "../Message/Message";
 import SendMessageForm from "../SendMessageForm/SendMessageForm";
 
+/**
+ * Список сообщений и кмопоненты для работы с ним.
+ * @returns Возвращает html-компонент.
+ */
 const MessageList = () => {
   const { rooms, openedRoomId, setMessage, setOpenedRoomId } = useChat();
   const openedRoom = rooms[rooms.findIndex((room) => room.id === openedRoomId)];
@@ -25,6 +29,7 @@ const MessageList = () => {
               Покинуть чат
             </button>) : (<></>)}
           </label>
+          {/* Проверяем, открыт ли чат, если да, то выводим сообщения в нем. */}
           {!openedRoom ? (
             <span onClick={createNewChat} className="list-help-text">
               Create new chat!

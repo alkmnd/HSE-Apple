@@ -1,6 +1,9 @@
 import React from 'react'
 import * as VscIcons from 'react-icons/vsc';
 
+/**
+ * Данные для отображения навигации.
+ */
 export const SidebarData = [
     {
         title: 'Профиль', 

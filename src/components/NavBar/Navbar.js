@@ -7,6 +7,10 @@ import './Navbar.css';
 import { IconContext } from 'react-icons';
 import tokenService from '../../services/TokenService';
 
+/**
+ * Компонент для навигации.
+ * @returns html-компонент.
+ */
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
 

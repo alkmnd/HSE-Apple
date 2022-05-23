@@ -3,6 +3,10 @@ import { useNavigate } from "react-router-dom";
 import tokenService from '../../services/TokenService';
 import api from '../../http';
 
+/**
+ * Страница для авторизации.
+ * @returns Возвращает html-компонент.
+ */
 export default function Login() {
   let navigate = useNavigate();
 
@@ -10,19 +14,29 @@ export default function Login() {
   const [sent, setSent] = useState(false);
   const [code, setCode] = useState('');
 
+  /**
+   * Отправка кода.
+   * @param {*} event - событие.
+   */
   async function sendCode(event) {
     event.preventDefault();
     const status = await api.sendCode(email);
     if (status !== 200) return;
     event.target.value = '';
     setSent(!sent);
-    console.log()
   }
 
+  /**
+   * Проверка кода и перенаправление на страницу с профилем,
+   * если код введен.
+   * @param {*} event 
+   * @returns 
+   */
   async function confirmCode(event) {
     event.preventDefault();
     const token = await api.login(email, code);
     if (!token) return;
+    // Сохранение токена.
     tokenService.saveToken(token);
     navigate("/profile");
   }

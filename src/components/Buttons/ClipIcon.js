@@ -1,3 +1,6 @@
+/**
+ * Кнопка для прикрепления файла к сообщению.
+ */
 export const ClipIcon = (props) => {
     return (
       <svg

@@ -4,6 +4,10 @@ import { useParams } from "react-router-dom";
 import { useAnswers } from "../../providers/answersProvider";
 import "./AnswerList.css"
 
+/**
+ * Отображение списка компонентов "Ответ".
+ * @returns Возвращает html-компонент.
+ */
 function AnswerList() {
   const { id } = useParams();
   const { assignments } = useAnswers();

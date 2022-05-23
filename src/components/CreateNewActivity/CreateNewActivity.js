@@ -4,7 +4,11 @@ import { GrFormClose } from "react-icons/gr";
 import { useState } from "react";
 
 const groupNames = ["Все", "1 курс - IOS", "2 курс - IOS"];
-
+/**
+ * Окно для создания нового объявления.
+ * @param {*} param0 В параметрах события.
+ * @returns Возвращается html-компонент.
+ */
 const CreateNewActivity = ({ close, onSubmit }) => {
   const [form, setForm] = useState({
     name: "",
@@ -12,6 +16,10 @@ const CreateNewActivity = ({ close, onSubmit }) => {
     description: "",
   });
   const [nameError, setNameError] = useState("");
+  /**
+   * Проверка длины текста.
+   * @param {*} event -  Событие.
+   */
   function nameBugTracker(event) {
     const value = event.target.value;
 
@@ -24,6 +32,10 @@ const CreateNewActivity = ({ close, onSubmit }) => {
     handleChangeValue(event);
   }
 
+  /**
+   * Получение текущей даты.
+   * @returns Дата в виде строки.
+   */
   const dateNow = () => {
     const date = new Date();
     return `${date.getDay()}-${date.getMonth()}-${date.getFullYear()}`;

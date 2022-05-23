@@ -2,8 +2,16 @@ import "./CreateNewAssignment.css";
 import { GrFormClose } from "react-icons/gr";
 import { useState } from "react";
 
+/**
+ * Список групп.
+ */
 const groupNames = ["Все", "1 курс - IOS", "2 курс - IOS"];
 
+/**
+ * Форма для создания нового задания.
+ * @param {*} param0 В параметрах события.
+ * @returns Возвращается html-компонент.
+ */
 const CreateNewAssignment = ({ onSubmit, close }) => {
   const [form, setForm] = useState({
     header: "",

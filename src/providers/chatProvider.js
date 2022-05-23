@@ -1,6 +1,9 @@
 import { createContext, useContext, useState } from "react";
 import shortid from "shortid";
 
+/**
+ * Данные для отображения.
+ */
 const ROOMS = [
   {
     title: "1 курс - IOS",
@@ -62,6 +65,7 @@ const context = createContext({
 
 export const useChat = () => useContext(context);
 
+// Провайдер отправки и отображения новых сообщений, создания и просмотра данных чатов.
 export const ChatProvider = ({ children }) => {
   const [openedRoomId, setOpenedRoomId] = useState(null);
   const [rooms, setRooms] = useState(ROOMS);

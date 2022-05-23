@@ -1,11 +1,18 @@
 import { createContext, useContext, useState } from "react";
 import shortid from "shortid";
 
+/**
+ * Получение текущей даты.
+ * @returns Дата в виде строки.
+ */
 const dateNow = () => {
   const date = new Date();
   return `${date.getDay()}-${date.getMonth()}-${date.getFullYear()}`;
 };
 
+/**
+ * Данные для отображения списка ответов и заданий.
+ */
 const DATA = [
   {
     id: shortid.generate(),
@@ -51,6 +58,7 @@ const context = createContext({
 
 export const useAnswers = () => useContext(context);
 
+// Обеспечение взаимодействий между "Заданиями" и "Ответами".
 export const AnswersProvider = ({ children }) => {
   const [assignments, setAssigments] = useState(DATA);
   const saveNewAnswer = ({ fileName, url, assignmentId }) => {

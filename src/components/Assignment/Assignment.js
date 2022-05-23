@@ -4,9 +4,23 @@ import { useNavigate } from "react-router-dom";
 import { useAnswers } from "../../providers/answersProvider";
 import "./Assignment.css"
 
+/**
+ * Компонент "Задание".
+ * @param {*} header - Название (заголовок) задания.
+ * @param {*} creator - Создатель задания.
+ * @param {*} group - Группа, для которой опубликованно задание.
+ * @param {*} deadline - Дедлайн задания.
+ * @param {*} file - Ссылка на задание.
+ * @param {*} id - id задания.
+ * @returns Возвращает html-компонент.
+ */
 function Assignment({ header, creator, group, deadline, file, id }) {
   let navigate = useNavigate();
   const { saveNewAnswer } = useAnswers();
+  /**
+   * Вспомогательная функция для загрзки ответа.
+   * @param {*} event 
+   */
   function saveFile(event) {
     if (event.target.files && event.target.files[0]) {
       let file = event.target.files[0];
@@ -19,6 +33,9 @@ function Assignment({ header, creator, group, deadline, file, id }) {
     }
   }
 
+  /**
+   * Загрузка ответа на задание в систему.
+   */
   function loadFile() {
     let file = document.createElement("input");
     file.setAttribute("type", "file");
@@ -26,6 +43,9 @@ function Assignment({ header, creator, group, deadline, file, id }) {
     file.click();
   }
 
+  /**
+   * Скачивание файла с заданием.
+   */
   function downloadFile() {
     let link = document.createElement("a");
     link.setAttribute("href", file?.url ?? "blob-file");
@@ -39,7 +59,6 @@ function Assignment({ header, creator, group, deadline, file, id }) {
         <h1 className="header">{header}</h1>
         <span className="creator">Автор: {creator}</span>
         <span className="deadline">Дедлайн: {deadline}</span>
-        {/* <span className="sender-group">Кому: {group}</span> */}
       </div>
       <div>
         <FcFile className="add-button" onClick={loadFile} />

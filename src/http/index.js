@@ -1,6 +1,8 @@
 const BASE_URL = 'http://localhost:8080';
 
-
+/**
+ * Api для отправки кода.
+ */
 class Api {
   async sendCode(email) {
     return fetch(`${BASE_URL}/code`, {

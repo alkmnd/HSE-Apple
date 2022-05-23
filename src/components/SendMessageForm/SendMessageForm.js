@@ -3,6 +3,11 @@ import { SafeAreaView} from "react-native";
 import { ClipIcon } from "../Buttons/ClipIcon";
 import "./SendMessageForm.css"
 
+/**
+ * Форма для ввода сообщения.
+ * @param {*} param0 
+ * @returns html-компонент.
+ */
 const SendMessageForm = ({ onCreateMessage }) => {
   const [message, setMessage] = useState({
     text: "",
@@ -22,6 +27,10 @@ const SendMessageForm = ({ onCreateMessage }) => {
     });
   };
 
+  /**
+   * Функция для выбора файла.
+   * @param {*} event - событие.
+   */
   function saveFile(event) {
     if (event.target.files && event.target.files[0]) {
       let file = event.target.files[0];
@@ -38,6 +47,10 @@ const SendMessageForm = ({ onCreateMessage }) => {
     }
   }
 
+  /**
+   * Загрузка файла
+   * @param {*} e - событие.
+   */
   function loadFile(e) {
     let file = document.createElement("input");
     file.setAttribute("type", "file");

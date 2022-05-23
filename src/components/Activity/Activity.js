@@ -1,6 +1,14 @@
 import React from "react";
 import "./Activity.css"
-
+/**
+ * Создает компонент "Объявление"
+ * @param {*} header - заголовок.
+ * @param {*} creator - создатель объявления.
+ * @param {*} description - содержание объявления.
+ * @param {*} group - группа, для которой публикуется объявления.
+ * @param {*} dateCreate - дата создания.
+ * @returns Возвращается компонент.
+ */
 function Activity({ header, creator, description, group, dateCreate }) {
   return (
     <div className="activity">

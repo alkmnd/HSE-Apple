@@ -1,4 +1,10 @@
 import { StyleSheet, View, Text, TouchableOpacity} from 'react-native';
+
+/**
+ * Стилизованная кнопка.
+ * @param {*} param0 В параметрах текст и событие нажатия на кнопку.
+ * @returns Возвращает html компонент.
+ */
 export default function FlatButton({ text, onPress }) {
     return (
         <TouchableOpacity onPress={onPress}>
@@ -8,7 +14,9 @@ export default function FlatButton({ text, onPress }) {
         </TouchableOpacity>
     );
 }
- 
+/**
+ * Стили.
+ */
 const buttonStyles = StyleSheet.create({
     button: {
         borderRadius: 8,
@@ -17,7 +25,7 @@ const buttonStyles = StyleSheet.create({
         backgroundColor: "none",
         height: 20,
         marginTop: "-6rem",
-        left:"4%"
+
     },
     buttonText: {
         color: "#979797",

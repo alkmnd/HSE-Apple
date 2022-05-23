@@ -4,12 +4,18 @@ import { AiFillPlusCircle } from "react-icons/ai";
 import Activity from "../Activity/Activity";
 import CreateNewActivity from "../CreateNewActivity/CreateNewActivity";
 import "./ActivityList.css"
-
+/**
+ * Получение текущей даты.
+ * @returns Возвращается дата в виде строки.
+ */
 const dateNow = () => {
   const date = new Date();
   return `${date.getDay()}-${date.getMonth()}-${date.getFullYear()}`;
 };
 
+/**
+ * Данные для отображения.
+ */
 var DATA = [
   {
     creator: "Teacher",
@@ -27,6 +33,11 @@ var DATA = [
   },
 ];
 
+/**
+ * Компонент для отображения объявлений и необходимого функционала 
+ * для работы с ними.
+ * @returns Возвращает html-компонент.
+ */
 function ActivityList() {
   const [activities, setActivities] = useState(DATA);
   const [groupName, setGroupName] = useState("all");

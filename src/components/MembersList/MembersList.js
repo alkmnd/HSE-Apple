@@ -3,6 +3,10 @@ import { AiFillPlusCircle } from "react-icons/ai";
 import { useChat } from "../../providers/chatProvider";
 import "./MembersList.css"
 
+/**
+ * Отображение участников чата.
+ * @returns Возвращается html-компонент.
+ */
 const MembersList = () => {
   const { rooms, openedRoomId} = useChat();
   const openedRoom = rooms[rooms.findIndex((room) => room.id === openedRoomId)];
@@ -28,6 +32,11 @@ const MembersList = () => {
   );
 };
 
+/**
+ * Отображение участника чата.
+ * @param {*} param0 - В параметрах id и ФИО пользователя.
+ * @returns Возвращается html-компонент.
+ */
 const ParticipantCard = ({ id, login }) => {
   return (<>
   <div className="participant-card">
